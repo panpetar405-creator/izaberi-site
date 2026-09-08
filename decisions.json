@@ -1,0 +1,110 @@
+[
+  {
+    "slug": "koji-telefon-do-500e",
+    "category": "TEHNOLOGIJA",
+    "question": "Koji telefon da kupim do 500 €?",
+    "subtitle": "Šta ti je najvažnije?",
+    "priorities": ["📸 Kamera", "🔋 Baterija", "⚡ Brzina", "💰 Cena/kvalitet", "📱 Veličina"],
+    "products": [
+      {
+        "rank": "🥇 NAJBOLJI UKUPNO",
+        "name": "Google Pixel 8a",
+        "price": "~479 €",
+        "bullets": ["✓ Najbolja kamera u ovom razredu", "✓ 7 godina update-a", "✓ Čist Android"],
+        "why": "Pobeđuje jer nema realnog konkurenta u kameri i softverskoj podršci na ovom budžetu.",
+        "affiliate_link": "#TODO-affiliate-link",
+        "image": "images/google-pixel-8a.jpg"
+      },
+      {
+        "rank": "🥈 ALTERNATIVA",
+        "name": "Samsung Galaxy A55",
+        "price": "~430 €",
+        "bullets": ["✓ Odličan ekran", "✓ Vodootpornost IP67", "✓ Dobra baterija"],
+        "why": "Najbolji izbor ako ti je bitan ekran i standardni Samsung ekosistem.",
+        "affiliate_link": "#TODO-affiliate-link",
+        "image": "images/samsung-galaxy-a55.jpg"
+      },
+      {
+        "rank": "🥉 BUDŽET IZBOR",
+        "name": "Xiaomi Redmi Note 13 Pro",
+        "price": "~280 €",
+        "bullets": ["✓ Najviše specifikacija za novac", "✓ Brzo punjenje"],
+        "why": "Ako želiš da potrošiš najmanje moguće, a i dalje dobiješ solidan telefon.",
+        "affiliate_link": "#TODO-affiliate-link",
+        "image": "images/xiaomi-redmi-note-13-pro.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "koji-laptop-do-800e",
+    "category": "TEHNOLOGIJA",
+    "question": "Koji laptop da kupim do 800 €?",
+    "subtitle": "Šta ti je najvažnije?",
+    "priorities": ["⚡ Performanse", "🔋 Baterija", "💼 Posao", "🎮 Gaming", "🎒 Mobilnost"],
+    "products": [
+      {
+        "rank": "🥇 NAJBOLJI UKUPNO",
+        "name": "Laptop X",
+        "price": "~780 €",
+        "bullets": ["✓ Performanse", "✓ Baterija", "✓ Ekran"],
+        "why": "Najbolji balans performansi i cene u ovom razredu.",
+        "affiliate_link": "#TODO-affiliate-link",
+        "image": "images/laptop-x.jpg"
+      },
+      {
+        "rank": "🥈 ALTERNATIVA",
+        "name": "Laptop Y",
+        "price": "~650 €",
+        "bullets": ["Najbolji odnos cena/kvalitet"],
+        "why": "Ako ti performanse nisu prioritet, ovaj model štedi novac bez velikih kompromisa.",
+        "affiliate_link": "#TODO-affiliate-link",
+        "image": "images/laptop-y.jpg"
+      },
+      {
+        "rank": "🥉 BUDŽET IZBOR",
+        "name": "Laptop Z",
+        "price": "~520 €",
+        "bullets": ["Najbolji ako želiš da potrošiš manje"],
+        "why": "Za osnovne potrebe (browsing, dokumenti) — ne za teže poslove.",
+        "affiliate_link": "#TODO-affiliate-link",
+        "image": "images/laptop-z.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "koju-klimu-za-50m2",
+    "category": "DOM",
+    "question": "Koju klimu da kupim za 50 m²?",
+    "subtitle": "Šta ti je najvažnije?",
+    "priorities": ["❄️ Hlađenje", "🔇 Tišina", "💡 Potrošnja", "💰 Cena", "📶 Wi-Fi kontrola"],
+    "products": [
+      {
+        "rank": "🥇 NAJBOLJI UKUPNO",
+        "name": "Klima A (18000 BTU, inverter)",
+        "price": "~650 €",
+        "bullets": ["✓ Dovoljan kapacitet za 50m²", "✓ A+++ energetska klasa", "✓ Tih rad"],
+        "why": "Za 50m² treba minimum 18000 BTU inverter jedinicu — ovaj model to pokriva uz nisku potrošnju.",
+        "affiliate_link": "#TODO-affiliate-link",
+        "image": "images/klima-a.jpg"
+      },
+      {
+        "rank": "🥈 ALTERNATIVA",
+        "name": "Klima B (18000 BTU)",
+        "price": "~550 €",
+        "bullets": ["Dobar kapacitet", "Standardna potrošnja"],
+        "why": "Solidan izbor ako ti Wi-Fi kontrola i najniža potrošnja nisu prioritet.",
+        "affiliate_link": "#TODO-affiliate-link",
+        "image": "images/klima-b.jpg"
+      },
+      {
+        "rank": "🥉 BUDŽET IZBOR",
+        "name": "Klima C (16000 BTU)",
+        "price": "~420 €",
+        "bullets": ["Najniža cena", "Manji kapacitet"],
+        "why": "Radi, ali će raditi duže i glasnije da ohladi isti prostor — kompromis za nižu cenu.",
+        "affiliate_link": "#TODO-affiliate-link",
+        "image": "images/klima-c.jpg"
+      }
+    ]
+  }
+]
