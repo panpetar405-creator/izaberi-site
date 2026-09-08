@@ -5,67 +5,796 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>IZABERI — Ne traži više. Izaberi bolje.</title>
 <style>
-:root{--bg:#f7f7f4;--ink:#111;--muted:#70706b;--line:#deded7;--card:#fff;--accent:#111;--max:1180px}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-a{text-decoration:none;color:inherit}.wrap{max-width:var(--max);margin:auto;padding:0 28px}
-header{height:76px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
-.logo{font-weight:900;letter-spacing:-.05em;font-size:25px}.nav{display:flex;gap:30px;font-size:14px;color:#444}.nav a:hover{color:#000}
-.hero{padding:105px 0 70px;text-align:center}.eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#777;margin-bottom:18px}
-h1{font-size:clamp(48px,7vw,82px);line-height:.95;letter-spacing:-.065em;margin:0 auto 22px;max-width:850px}
-.sub{font-size:20px;color:var(--muted);margin:0 auto 38px}.search{max-width:720px;margin:auto;background:#fff;border:1px solid #cfcfc8;border-radius:16px;padding:8px;display:flex;box-shadow:0 12px 35px #00000009}
-.search input{border:0;outline:0;flex:1;padding:17px 18px;font-size:16px;background:transparent}.btn{border:0;background:#111;color:white;border-radius:11px;padding:0 25px;font-weight:700;font-size:14px}
-.hints{margin-top:14px;color:#8a8a84;font-size:13px}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden;margin:15px 0 90px}.step{background:#fff;padding:27px}.num{font-size:12px;color:#999;font-weight:700}.step strong{display:block;font-size:18px;margin-top:12px}
-section{padding:0 0 88px}.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:24px}.section-head h2{font-size:30px;letter-spacing:-.04em;margin:0}.section-head p{color:#777;margin:0}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.cat{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;min-height:175px}.cat .icon{font-size:25px}.cat h3{margin:18px 0 8px;font-size:18px}.cat p{margin:0;color:#777;line-height:1.7;font-size:14px}
-.popular{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.tile{background:#111;color:#fff;border-radius:18px;padding:25px;min-height:145px;display:flex;flex-direction:column;justify-content:space-between}.tile small{color:#aaa}.tile span{font-size:20px;font-weight:750;letter-spacing:-.02em}
-.help{background:#eaeae4;border-radius:24px;padding:55px;display:flex;align-items:center;justify-content:space-between;gap:30px}.help h2{font-size:38px;letter-spacing:-.05em;margin:0 0 12px}.help p{color:#666;margin:0}.help .btn{height:48px;white-space:nowrap;padding:0 24px}
-.example{background:#fff;border:1px solid var(--line);border-radius:22px;padding:35px}.example h2{margin:0;font-size:28px;letter-spacing:-.04em}.choices{display:flex;flex-wrap:wrap;gap:9px;margin:22px 0}.pill{border:1px solid var(--line);border-radius:99px;padding:10px 14px;font-size:13px}.results{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.product{border:1px solid var(--line);border-radius:16px;padding:20px}.product b{font-size:17px}.product p{color:#777;font-size:13px}.rank{font-size:12px;color:#777}
-footer{border-top:1px solid var(--line);padding:35px 0 50px;color:#777;font-size:13px;display:flex;justify-content:space-between}
-@media(max-width:800px){.nav{display:none}.hero{padding-top:70px}.steps,.grid,.popular,.results{grid-template-columns:1fr}.help{padding:32px;display:block}.help .btn{margin-top:25px}.search{display:block;background:transparent;border:0;box-shadow:none;padding:0}.search input{background:#fff;border:1px solid var(--line);border-radius:12px;width:100%;margin-bottom:8px}.btn{height:52px;width:100%}.section-head{display:block}.section-head p{margin-top:8px}}
+:root{
+  --paper:#f3f0e8;
+  --ink:#151515;
+  --muted:#77736b;
+  --line:#c9c4b8;
+  --acid:#d8ff36;
+  --blue:#3157ff;
+  --white:#fffdf8;
+  --max:1240px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:Arial,Helvetica,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+a{text-decoration:none;color:inherit}
+button,input{font:inherit}
+button{cursor:pointer}
+.wrap{max-width:var(--max);margin:auto;padding:0 30px}
+
+/* HEADER — intentionally editorial, not a conventional SaaS navbar */
+header{
+  height:86px;border-bottom:1px solid var(--line);
+  display:flex;align-items:center;background:var(--paper);
+}
+.header-inner{width:100%;display:flex;align-items:center;justify-content:space-between}
+.logo{
+  font-family:Georgia,"Times New Roman",serif;font-size:27px;font-weight:900;
+  letter-spacing:-.08em;position:relative
+}
+.logo:after{
+  content:"";display:inline-block;width:9px;height:9px;background:var(--acid);
+  margin-left:5px;transform:rotate(45deg);vertical-align:5px
+}
+.nav{display:flex;gap:0;font-size:12px;text-transform:uppercase;letter-spacing:.1em;font-weight:700}
+.nav a{padding:12px 18px;border-left:1px solid var(--line);transition:.2s}
+.nav a:last-child{border-right:1px solid var(--line)}
+.nav a:hover{background:var(--ink);color:var(--paper)}
+
+/* HERO */
+.hero{padding:96px 0 92px;position:relative}
+.hero-grid{
+  display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:42px;align-items:end
+}
+.eyebrow{
+  font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.22em;
+  margin-bottom:25px;display:flex;align-items:center;gap:10px
+}
+.eyebrow i{display:block;width:28px;height:1px;background:var(--ink)}
+h1{
+  font-family:Georgia,"Times New Roman",serif;font-weight:900;
+  font-size:clamp(66px,9vw,128px);line-height:.82;letter-spacing:-.075em;
+  margin:0;max-width:920px
+}
+.hero-note{
+  border-left:1px solid var(--ink);padding-left:19px;margin-bottom:5px;
+  font-size:13px;line-height:1.55;color:#57534c
+}
+.hero-note strong{display:block;color:var(--ink);font-size:11px;text-transform:uppercase;letter-spacing:.13em;margin-bottom:10px}
+
+.search-wrap{margin-top:64px;position:relative}
+.search{
+  border:2px solid var(--ink);background:var(--white);height:78px;
+  display:flex;align-items:center;box-shadow:9px 9px 0 var(--acid);
+}
+.search-mark{
+  width:74px;height:100%;display:grid;place-items:center;border-right:1px solid var(--line)
+}
+.magnify{width:19px;height:19px;border:2px solid var(--ink);border-radius:50%;position:relative}
+.magnify:after{content:"";position:absolute;width:8px;height:2px;background:var(--ink);right:-6px;bottom:-3px;transform:rotate(45deg)}
+.search input{
+  flex:1;border:0;outline:0;background:transparent;padding:0 20px;
+  font-size:17px;color:var(--ink);min-width:0
+}
+.search input::placeholder{color:#99958d}
+.btn{
+  border:0;background:var(--ink);color:var(--paper);height:100%;
+  padding:0 30px;font-size:11px;font-weight:800;letter-spacing:.13em;
+  transition:background .2s,color .2s,transform .2s
+}
+.btn:hover{background:var(--blue);transform:translate(-3px,-3px)}
+.hints{
+  display:flex;flex-wrap:wrap;gap:0;margin-top:18px;color:#68645c;font-size:11px
+}
+.hints span{padding:0 12px;border-right:1px solid var(--line)}
+.hints span:first-child{padding-left:0}
+.hint{
+  background:none;border:0;border-right:1px solid var(--line);padding:0 12px;
+  color:#68645c;font-size:11px;cursor:pointer;transition:.15s
+}
+.hint:first-child{padding-left:0}
+.hint:hover{color:var(--blue);text-decoration:underline}
+
+.search-suggest{
+  position:absolute;left:0;right:0;top:calc(100% + 8px);background:var(--white);
+  border:2px solid var(--ink);z-index:20;display:none
+}
+.search-suggest.show{display:block}
+.search-suggest button{
+  display:block;width:100%;text-align:left;background:none;border:0;
+  border-bottom:1px solid var(--line);padding:14px 20px;font-size:14px;color:var(--ink)
+}
+.search-suggest button:last-child{border-bottom:0}
+.search-suggest button:hover,.search-suggest button.active{background:var(--ink);color:var(--paper)}
+.search-suggest .none{color:#8b877e;font-size:12px;padding:14px 20px}
+
+@keyframes flashHighlight{
+  0%{box-shadow:inset 0 0 0 3px var(--acid)}
+  100%{box-shadow:inset 0 0 0 3px transparent}
+}
+.flash{animation:flashHighlight 1.4s ease-out}
+@media(prefers-reduced-motion:reduce){.flash{animation:none;box-shadow:inset 0 0 0 3px var(--acid)}}
+
+
+/* PROCESS */
+.steps{
+  display:grid;grid-template-columns:1.3fr 1fr 1fr;border-top:2px solid var(--ink);
+  border-bottom:1px solid var(--line);margin-bottom:118px
+}
+.step{
+  min-height:128px;padding:24px 26px 25px 0;border-right:1px solid var(--line);
+  display:flex;flex-direction:column;justify-content:space-between
+}
+.step:not(:first-child){padding-left:26px}
+.step:last-child{border-right:0}
+.num{font-size:10px;letter-spacing:.15em;color:#8b877e;font-weight:800}
+.step strong{font-family:Georgia,serif;font-size:21px;letter-spacing:-.035em}
+
+/* SECTION HEAD */
+section{padding:0 0 112px}
+.section-head{
+  display:flex;align-items:baseline;justify-content:space-between;
+  border-bottom:2px solid var(--ink);padding-bottom:15px;margin-bottom:25px
+}
+.section-head h2{
+  margin:0;font-family:Georgia,serif;font-size:37px;letter-spacing:-.055em
+}
+.section-head p{margin:0;color:#77736b;font-size:11px;text-transform:uppercase;letter-spacing:.12em}
+
+/* CATEGORY CARDS — no emoji, custom abstract symbols */
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:0;border-left:1px solid var(--line)}
+.cat{
+  min-height:250px;padding:19px 18px;border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);position:relative;overflow:hidden;
+  display:flex;flex-direction:column;justify-content:space-between;
+  transition:background .25s,color .25s
+}
+.cat:nth-child(-n+3){border-top:1px solid var(--line)}
+.cat:hover{background:var(--ink);color:var(--paper)}
+.cat:hover p{color:#bcb8af}
+.cat:hover .cat-symbol{background:var(--acid);color:var(--ink);transform:rotate(45deg)}
+.cat:nth-child(1),.cat:nth-child(2){grid-column:span 2}
+.cat:nth-child(3),.cat:nth-child(4),.cat:nth-child(5),.cat:nth-child(6){grid-column:span 1}
+.cat-symbol{
+  width:44px;height:44px;border:1px solid currentColor;display:grid;place-items:center;
+  font-size:14px;font-weight:900;transition:.3s
+}
+.cat:nth-child(1) .cat-symbol:before{content:"◧"}
+.cat:nth-child(2) .cat-symbol:before{content:"⌂"}
+.cat:nth-child(3) .cat-symbol:before{content:"◇"}
+.cat:nth-child(4) .cat-symbol:before{content:"✦"}
+.cat:nth-child(5) .cat-symbol:before{content:"△"}
+.cat:nth-child(6) .cat-symbol:before{content:"□"}
+.cat h3{font-family:Georgia,serif;font-size:22px;letter-spacing:-.045em;margin:0 0 7px}
+.cat p{font-size:11px;line-height:1.55;color:#77736b;margin:0}
+.cat:after{
+  content:"↗";position:absolute;right:17px;bottom:15px;font-size:18px;opacity:.35
+}
+
+/* POPULAR — large typographic tickets */
+.popular{
+  display:grid;grid-template-columns:repeat(6,1fr);gap:9px
+}
+.tile{
+  min-height:190px;background:var(--ink);color:var(--paper);padding:18px;
+  display:flex;flex-direction:column;justify-content:space-between;position:relative;
+  overflow:hidden;transition:.25s
+}
+.tile:nth-child(1){grid-column:span 2;min-height:260px}
+.tile:nth-child(2){grid-column:span 2;min-height:260px}
+.tile:nth-child(3){grid-column:span 2;min-height:260px}
+.tile:nth-child(n+4){grid-column:span 2}
+.tile:hover{background:var(--blue);transform:translateY(-5px)}
+.tile:after{
+  content:"";position:absolute;width:90px;height:90px;border:1px solid #555;
+  border-radius:50%;right:-25px;top:-25px
+}
+.tile small{font-size:9px;letter-spacing:.16em;color:#aaa;font-weight:800}
+.tile span{
+  font-family:Georgia,serif;font-size:25px;line-height:.95;letter-spacing:-.045em;
+  max-width:250px;z-index:1
+}
+
+/* CTA */
+.help{
+  background:var(--acid);padding:43px 45px;display:flex;justify-content:space-between;
+  align-items:center;gap:30px;border:2px solid var(--ink)
+}
+.help h2{font-family:Georgia,serif;font-size:43px;letter-spacing:-.065em;margin:0 0 8px}
+.help p{margin:0;font-size:12px}
+.help .btn{height:54px;background:var(--ink);white-space:nowrap}
+.help .btn:hover{background:var(--blue)}
+
+/* EXAMPLE */
+.example{border-top:2px solid var(--ink);padding-top:22px}
+.example-head{display:flex;justify-content:space-between;gap:30px;align-items:end}
+.example h2{font-family:Georgia,serif;font-size:42px;letter-spacing:-.06em;margin:5px 0 0}
+.example > p{color:#77736b;font-size:12px}
+.choices{display:flex;gap:0;margin:29px 0 25px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.pill{
+  background:transparent;border:0;border-right:1px solid var(--line);padding:13px 16px;
+  font-size:11px;color:#555;transition:.2s
+}
+.pill:hover,.pill.selected{background:var(--ink);color:var(--paper)}
+.results{display:grid;grid-template-columns:1.35fr 1fr 1fr;gap:9px}
+.product{
+  background:var(--white);border:1px solid var(--line);min-height:190px;padding:20px;
+  display:flex;flex-direction:column
+}
+.product:first-child{border:2px solid var(--ink)}
+.product b{font-family:Georgia,serif;font-size:23px;letter-spacing:-.04em;margin:15px 0 5px}
+.product p{font-size:11px;color:#77736b;line-height:1.6;margin:0 0 15px;flex:1}
+.product .btn{height:42px;width:max-content;padding:0 18px}
+
+/* FOOTER */
+footer{border-top:1px solid var(--line);padding:30px 0 50px;font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:#77736b}
+.footer-inner{display:flex;justify-content:space-between}
+
+.quiz-progress{font-size:10px;letter-spacing:.14em;color:#8b877e;font-weight:800;margin-bottom:14px;text-transform:uppercase}
+.quiz-restart{grid-column:1/-1;background:transparent;border:0;border-bottom:1px solid var(--ink);padding:0 0 2px;font-size:11px;color:var(--ink);margin-top:18px;width:max-content;justify-self:start}
+.quiz-restart:hover{color:var(--blue);border-color:var(--blue)}
+.product .rank{font-size:10px;letter-spacing:.12em;color:#8b877e;font-weight:800;text-transform:uppercase}
+.product .price{font-size:15px;font-weight:800;color:var(--blue);margin-bottom:6px}
+
+.toast{
+  position:fixed;left:50%;bottom:24px;transform:translate(-50%,15px);
+  background:var(--ink);color:var(--paper);padding:13px 18px;font-size:11px;
+  opacity:0;pointer-events:none;transition:.25s;z-index:30;border:1px solid #333
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media(max-width:1000px){
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .cat:nth-child(n){grid-column:span 1}
+  .cat:nth-child(1),.cat:nth-child(2){grid-column:span 1}
+  .popular{grid-template-columns:repeat(2,1fr)}
+  .tile:nth-child(n){grid-column:span 1;min-height:190px}
+}
+@media(max-width:720px){
+  .wrap{padding:0 18px}
+  header{height:70px}.nav{display:none}
+  .hero{padding:70px 0 65px}
+  .hero-grid{display:block}.hero-note{display:none}
+  h1{font-size:clamp(58px,17vw,90px)}
+  .search-wrap{margin-top:50px}
+  .search{height:auto;display:grid;grid-template-columns:54px 1fr}
+  .search-mark{width:54px;height:56px}
+  .search input{height:56px;padding:0 12px}
+  .search .btn{grid-column:1/-1;height:52px}
+  .hints span{margin-bottom:7px}
+  .steps{grid-template-columns:1fr;margin-bottom:78px}
+  .step,.step:not(:first-child){padding:20px 0;border-right:0;border-bottom:1px solid var(--line);min-height:95px}
+  .step:last-child{border-bottom:0}
+  .section-head{display:block}.section-head p{margin-top:8px}
+  .grid{grid-template-columns:1fr 1fr}
+  .cat:nth-child(n){grid-column:span 1}
+  .cat{min-height:205px}
+  .popular{grid-template-columns:1fr}
+  .tile:nth-child(n){grid-column:span 1;min-height:170px}
+  .help{display:block;padding:30px}
+  .help h2{font-size:34px}
+  .help .btn{margin-top:25px;width:100%}
+  .example h2{font-size:32px}
+  .example-head{display:block}
+  .choices{overflow:auto}
+  .pill{white-space:nowrap}
+  .results{grid-template-columns:1fr}
+  .footer-inner{display:block}.footer-inner span+span{display:block;margin-top:8px}
+}
 </style>
 </head>
 <body>
-<header><div class="wrap" style="width:100%;display:flex;align-items:center;justify-content:space-between"><a class="logo" href="#">IZABERI</a><nav class="nav"><a href="#kategorije">Kategorije</a><a href="#kako">Kako radi</a><a href="#popularno">Najnovije</a></nav></div></header>
+<header>
+  <div class="wrap header-inner">
+    <a class="logo" href="#">IZABERI</a>
+    <nav class="nav">
+      <a href="#kategorije">Kategorije</a>
+      <a href="#kako">Kako radi</a>
+      <a href="#popularno">Najnovije</a>
+    </nav>
+  </div>
+</header>
+
 <main class="wrap">
 <section class="hero">
-<div class="eyebrow">Digitalni pomoćnik za odluke</div>
-<h1>Ne traži više.<br>Izaberi bolje.</h1>
-<p class="sub">Pomažemo ti da izabereš ono što ti najviše odgovara.</p>
-<div class="search"><input placeholder="🔎  Šta želiš da izabereš?"><button class="btn">PRETRAŽI</button></div>
-<div class="hints">Telefon do 500 € · Laptop za posao · Klima za 60 m² · AI alat za Instagram</div>
+  <div class="hero-grid">
+    <div>
+      <div class="eyebrow"><i></i>Digitalni pomoćnik za odluke</div>
+      <h1>Ne traži više.<br>Izaberi bolje.</h1>
+    </div>
+    <div class="hero-note"><strong>Jedna dobra odluka.</strong>Manje tabova. Manje buke. Više sigurnosti u ono što biraš.</div>
+  </div>
+  <div class="search-wrap">
+    <form class="search" id="searchForm">
+      <div class="search-mark"><span class="magnify"></span></div>
+      <input id="searchInput" placeholder="Šta želiš da izabereš?" autocomplete="off">
+      <button class="btn" type="submit">PRETRAŽI</button>
+    </form>
+    <div class="search-suggest" id="searchSuggest"></div>
+    <div class="hints">
+      <button type="button" class="hint" data-query="telefon do 500">Telefon do 500 €</button><button type="button" class="hint" data-query="laptop za posao">Laptop za posao</button><button type="button" class="hint" data-query="klima za 60 m2">Klima za 60 m²</button><button type="button" class="hint" data-query="ai alat instagram">AI alat za Instagram</button>
+    </div>
+  </div>
 </section>
 
-<section id="kako"><div class="steps">
-<div class="step"><span class="num">01</span><strong>Reci šta tražiš</strong></div>
-<div class="step"><span class="num">02</span><strong>Postavi prioritete</strong></div>
-<div class="step"><span class="num">03</span><strong>Izaberi najbolje za sebe</strong></div>
-</div></section>
+<section id="kako">
+  <div class="steps">
+    <div class="step"><span class="num">01</span><strong>Reci šta tražiš</strong></div>
+    <div class="step"><span class="num">02</span><strong>Postavi prioritete</strong></div>
+    <div class="step"><span class="num">03</span><strong>Izaberi najbolje za sebe</strong></div>
+  </div>
+</section>
 
-<section id="kategorije"><div class="section-head"><h2>Šta biraš danas?</h2><p>Jednostavno do pravog izbora.</p></div>
-<div class="grid">
-<div class="cat"><div class="icon">💻</div><h3>Tehnologija</h3><p>Telefoni · Laptopovi · Televizori · Slušalice</p></div>
-<div class="cat"><div class="icon">🏠</div><h3>Dom</h3><p>Klime · Usisivači · Frižideri · Mašine</p></div>
-<div class="cat"><div class="icon">🚗</div><h3>Auto</h3><p>Automobili · Gume · Osiguranje · Oprema</p></div>
-<div class="cat"><div class="icon">🤖</div><h3>Biznis & AI</h3><p>AI alati · Softver · Hosting · SaaS</p></div>
-<div class="cat"><div class="icon">✈️</div><h3>Putovanja</h3><p>Hoteli · Destinacije · Rent-a-car</p></div>
-<div class="cat"><div class="icon">💳</div><h3>Novac</h3><p>Banke · Krediti · Kartice · Osiguranje</p></div>
-</div></section>
+<section id="kategorije">
+  <div class="section-head"><h2>Šta biraš danas?</h2><p>Jednostavno do pravog izbora.</p></div>
+  <div class="grid">
+    <div class="cat" data-search="tehnologija telefon telefoni laptop laptopovi televizor televizori slusalice"><div class="cat-symbol"></div><div><h3>Tehnologija</h3><p>Telefoni · Laptopovi · Televizori · Slušalice</p></div></div>
+    <div class="cat" data-search="dom klima klime usisivac usisivaci frizider frizideri masina masine"><div class="cat-symbol"></div><div><h3>Dom</h3><p>Klime · Usisivači · Frižideri · Mašine</p></div></div>
+    <div class="cat" data-search="auto automobil automobili gume osiguranje oprema"><div class="cat-symbol"></div><div><h3>Auto</h3><p>Automobili · Gume · Osiguranje · Oprema</p></div></div>
+    <div class="cat" data-search="biznis ai alat alati softver hosting saas instagram video"><div class="cat-symbol"></div><div><h3>Biznis & AI</h3><p>AI alati · Softver · Hosting · SaaS</p></div></div>
+    <div class="cat" data-search="putovanja hotel hoteli destinacije rent-a-car budva"><div class="cat-symbol"></div><div><h3>Putovanja</h3><p>Hoteli · Destinacije · Rent-a-car</p></div></div>
+    <div class="cat" data-search="novac banke krediti kartice osiguranje"><div class="cat-symbol"></div><div><h3>Novac</h3><p>Banke · Krediti · Kartice · Osiguranje</p></div></div>
+  </div>
+</section>
 
-<section id="popularno"><div class="section-head"><h2>Najtraženiji izbori</h2><p>Popularno sada</p></div>
-<div class="popular">
-<a class="tile" href="pages/koji-telefon-do-500e.html"><small>TEHNOLOGIJA</small><span>Najbolji telefon do 500 €</span></a>
-<a class="tile" href="pages/koji-laptop-do-800e.html"><small>TEHNOLOGIJA</small><span>Najbolji laptop za posao</span></a>
-<a class="tile" href="pages/koju-klimu-za-50m2.html"><small>DOM</small><span>Najbolja klima za stan</span></a>
-<div class="tile"><small>BIZNIS & AI</small><span>Najbolji AI alat za video</span></div>
-<div class="tile"><small>AUTO</small><span>Najbolji auto do 15.000 €</span></div>
-<div class="tile"><small>PUTOVANJA</small><span>Najbolji hotel u Budvi</span></div>
-</div></section>
+<section id="popularno">
+  <div class="section-head"><h2>Najtraženiji izbori</h2><p>Popularno sada</p></div>
+  <div class="popular">
+    <div class="tile" data-search="telefon do 500" data-quiz="telefon"><small>TEHNOLOGIJA</small><span>Najbolji telefon do 500 €</span></div>
+    <div class="tile" data-search="laptop za posao" data-quiz="laptop"><small>TEHNOLOGIJA</small><span>Najbolji laptop za posao</span></div>
+    <div class="tile" data-search="klima za stan" data-quiz="klima"><small>DOM</small><span>Najbolja klima za stan</span></div>
+    <div class="tile" data-search="ai alat video biznis" data-quiz="biznis"><small>BIZNIS & AI</small><span>Najbolji AI alat za video</span></div>
+    <div class="tile" data-search="auto do 15000" data-quiz="auto"><small>AUTO</small><span>Najbolji auto do 15.000 €</span></div>
+    <div class="tile" data-search="hotel budva putovanja" data-quiz="putovanja"><small>PUTOVANJA</small><span>Najbolji hotel u Budvi</span></div>
+  </div>
+</section>
 
-<section><div class="help"><div><h2>Ne znaš šta da izabereš?</h2><p>Odgovori na 3–5 pitanja. Mi ćemo suziti izbor.</p></div><button class="btn">POMOZI MI DA IZABEREM</button></div></section>
+<section>
+  <div class="help">
+    <div><h2>Ne znaš šta da izabereš?</h2><p>Odgovori na 3–5 pitanja. Mi ćemo suziti izbor.</p></div>
+    <button class="btn" id="helpBtn">POMOZI MI DA IZABEREM</button>
+  </div>
+</section>
 
-<section><div class="example"><div class="rank">PRIMER STRANICE</div><h2>Koji laptop da kupim do 800 €?</h2><p style="color:#777">Šta ti je najvažnije?</p><div class="choices"><span class="pill">⚡ Performanse</span><span class="pill">🔋 Baterija</span><span class="pill">💼 Posao</span><span class="pill">🎮 Gaming</span><span class="pill">🎒 Mobilnost</span></div>
-<div class="results"><div class="product"><div class="rank">🥇 NAJBOLJI UKUPNO</div><b>Laptop X</b><p>✓ Performanse<br>✓ Baterija<br>✓ Ekran</p><button class="btn">POGLEDAJ PONUDU</button></div><div class="product"><div class="rank">🥈 ALTERNATIVA</div><b>Laptop Y</b><p>Najbolji odnos cena/kvalitet</p></div><div class="product"><div class="rank">🥉 BUDŽET IZBOR</div><b>Laptop Z</b><p>Najbolji ako želiš da potrošiš manje</p></div></div>
-</div></section>
+<section id="kviz">
+  <div class="example">
+    <div class="example-head">
+      <div><div class="rank" id="quizKicker">POMOZI MI DA IZABEREM</div><h2 id="quizTitle">Šta biraš danas?</h2></div>
+      <p id="quizSubtitle">Izaberi kategoriju da počneš.</p>
+    </div>
+    <div class="choices" id="quizStep"></div>
+    <div class="results" id="quizResults"></div>
+  </div>
+</section>
 </main>
-<footer><div class="wrap" style="width:100%;display:flex;justify-content:space-between"><span>IZABERI</span><span>Ne traži više. Izaberi bolje.</span></div></footer>
-</body></html>
+
+<footer>
+  <div class="wrap footer-inner"><span>IZABERI</span><span>Ne traži više. Izaberi bolje.</span></div>
+</footer>
+<div class="toast" id="toast"></div>
+
+<script>
+const toast=document.getElementById('toast');
+function showToast(msg){
+  toast.textContent=msg;toast.classList.add('show');
+  clearTimeout(window.__t);window.__t=setTimeout(()=>toast.classList.remove('show'),2400);
+}
+
+/* ===================================================================
+   PRETRAGA
+   -------------------------------------------------------------------
+   Indeks se pravi automatski iz data-search atributa na .cat i .tile
+   elementima (u HTML-u), plus iz naziva kviz-kategorija. Kad dodaš
+   novu karticu/tile sa data-search="...", automatski postaje deo
+   pretrage - ništa dodatno ne treba menjati ovde.
+=================================================================== */
+function normalize(s){
+  return s.toLowerCase()
+    .replace(/š/g,'s').replace(/đ/g,'dj').replace(/č/g,'c')
+    .replace(/ć/g,'c').replace(/ž/g,'z').trim();
+}
+
+function buildSearchIndex(){
+  const index=[];
+  document.querySelectorAll('.tile[data-search]').forEach(el=>{
+    index.push({
+      label: el.querySelector('span').textContent,
+      terms: normalize(el.dataset.search + ' ' + el.querySelector('span').textContent),
+      run: ()=>{
+        if(el.dataset.quiz){
+          renderCategoryPicker();
+          const catBtn=[...quizStepEl.querySelectorAll('button')].find(b=>QUIZ_DATA[el.dataset.quiz] && b.textContent===QUIZ_DATA[el.dataset.quiz].label);
+          document.getElementById('kviz').scrollIntoView({behavior:'smooth',block:'start'});
+          setTimeout(()=>{ quizState.category=el.dataset.quiz; quizState.qIndex=0; quizState.answers={}; renderQuestion(); },350);
+        } else {
+          el.scrollIntoView({behavior:'smooth',block:'center'});
+          el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash');
+        }
+      }
+    });
+  });
+  document.querySelectorAll('.cat[data-search]').forEach(el=>{
+    index.push({
+      label: el.querySelector('h3').textContent,
+      terms: normalize(el.dataset.search + ' ' + el.querySelector('h3').textContent),
+      run: ()=>{
+        el.scrollIntoView({behavior:'smooth',block:'center'});
+        el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash');
+      }
+    });
+  });
+  return index;
+}
+const SEARCH_INDEX = buildSearchIndex();
+
+function findMatches(query){
+  const q = normalize(query);
+  if(!q) return [];
+  const words = q.split(/\s+/).filter(Boolean);
+  return SEARCH_INDEX
+    .map(item=>{
+      let score=0;
+      words.forEach(w=>{ if(item.terms.includes(w)) score++; });
+      if(item.terms.includes(q)) score+=3;
+      return {...item, score};
+    })
+    .filter(item=>item.score>0)
+    .sort((a,b)=>b.score-a.score)
+    .slice(0,5);
+}
+
+const searchInput=document.getElementById('searchInput');
+const searchSuggest=document.getElementById('searchSuggest');
+
+function renderSuggestions(query){
+  const matches=findMatches(query);
+  searchSuggest.innerHTML='';
+  if(!query.trim()){
+    searchSuggest.classList.remove('show');
+    return;
+  }
+  if(matches.length===0){
+    searchSuggest.innerHTML='<div class="none">Nema rezultata. Probaj kategoriju iz menija ispod.</div>';
+  } else {
+    matches.forEach(m=>{
+      const b=document.createElement('button');
+      b.type='button';
+      b.textContent=m.label;
+      b.addEventListener('click',()=>{
+        searchInput.value=m.label;
+        searchSuggest.classList.remove('show');
+        m.run();
+      });
+      searchSuggest.appendChild(b);
+    });
+  }
+  searchSuggest.classList.add('show');
+}
+
+searchInput.addEventListener('input',e=>renderSuggestions(e.target.value));
+searchInput.addEventListener('focus',e=>{ if(e.target.value.trim()) renderSuggestions(e.target.value); });
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.search-wrap')) searchSuggest.classList.remove('show');
+});
+
+document.getElementById('searchForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const v=searchInput.value.trim();
+  if(!v){ showToast('Upiši šta želiš da izabereš.'); return; }
+  const matches=findMatches(v);
+  searchSuggest.classList.remove('show');
+  if(matches.length>0){
+    matches[0].run();
+  } else {
+    showToast(`Nema rezultata za: ${v}`);
+  }
+});
+
+function searchFor(query){
+  searchInput.value=query;
+  const matches=findMatches(query);
+  if(matches.length>0) matches[0].run();
+  else showToast(`Nema rezultata za: ${query}`);
+}
+document.querySelectorAll('.hint').forEach(h=>{
+  h.addEventListener('click',()=>searchFor(h.dataset.query));
+});
+/* ===================================================================
+   KVIZ "POMOZI MI DA IZABEREM"
+   -------------------------------------------------------------------
+   Podaci se sada učitavaju sa backend API-ja (/api/quiz-data), koji
+   čita server/data/products.json. Taj fajl se automatski ažurira
+   pokretanjem server/import-feed.js kada se poveže pravi affiliate
+   feed. FALLBACK_QUIZ_DATA ispod se koristi SAMO ako API nije
+   dostupan (npr. testiraš direktno preko file:// bez pokrenutog
+   servera) — da stranica ne bude prazna.
+=================================================================== */
+let QUIZ_DATA = null;
+// DEMO/TEST podaci — isti kao server/data/products.json, koriste se samo
+// ako /api/quiz-data nije dostupan (npr. otvaranje fajla direktno bez servera).
+const FALLBACK_QUIZ_DATA = {
+  laptop: {
+    label: 'Laptop za posao',
+    title: 'Koji laptop da kupiš?',
+    questions: [
+      { id:'prioritet', label:'Šta ti je najvažnije?', options:[
+        {id:'performanse',label:'Performanse'},
+        {id:'baterija',label:'Baterija'},
+        {id:'posao',label:'Posao'},
+        {id:'gaming',label:'Gaming'},
+        {id:'mobilnost',label:'Mobilnost'}
+      ]},
+      { id:'budzet', label:'Koji je tvoj budžet?', options:[
+        {id:'do60k',label:'Do 60.000 RSD'},
+        {id:'do75k',label:'Do 75.000 RSD'},
+        {id:'do90k',label:'Do 90.000 RSD'},
+        {id:'preko90k',label:'Preko 90.000 RSD'}
+      ]}
+    ],
+    products: [
+      { name:'Acer Aspire Lite 15 (Ryzen 3 5400U, 8GB, 256GB SSD)', tags:['posao','mobilnost'], budget:'do60k', desc:'Najpristupačniji poslovni laptop u ponudi — dovoljan za office pakete, mejl i pregledače, lagan za nošenje.', price_rsd:59999, link:'#' },
+      { name:'Lenovo V15 G5 (i3-1315U, 8GB DDR5, 512GB SSD)', tags:['posao','baterija'], budget:'do75k', desc:'Solidan balans cene i pouzdanosti, veći SSD nego kod konkurencije u istom rangu.', price_rsd:68999, link:'#' },
+      { name:'Asus Vivobook Go 15 (Ryzen 3 7320U, 16GB, 512GB SSD)', tags:['performanse','posao','baterija'], budget:'do90k', desc:'16GB RAM-a čini multitasking mnogo udobnijim, noviji čip uz i dalje pristupačnu cenu.', price_rsd:79999, link:'#' },
+      { name:'Vivobook 16 (Ryzen 5 7430U, 16GB, 512GB SSD)', tags:['performanse','gaming'], budget:'preko90k', desc:'Jači procesor i veći 16" ekran, najbolja opcija kad su performanse prioritet.', price_rsd:94999, link:'#' }
+    ]
+  },
+  telefon: {
+    label: 'Telefon do 500 €',
+    title: 'Koji telefon da izabereš?',
+    questions: [
+      { id:'prioritet', label:'Šta ti je najvažnije?', options:[
+        {id:'kamera',label:'Kamera'},
+        {id:'baterija',label:'Baterija'},
+        {id:'brzina',label:'Brzina'},
+        {id:'cena',label:'Cena'}
+      ]},
+      { id:'budzet', label:'Koji je tvoj budžet?', options:[
+        {id:'do250',label:'Do 250 €'},
+        {id:'do350',label:'Do 350 €'},
+        {id:'do500',label:'Do 500 €'}
+      ]}
+    ],
+    products: [
+      { name:'Samsung Galaxy A16', tags:['baterija','cena'], budget:'do250', desc:'Veliki ekran, baterija od 5000 mAh — najpristupačnija opcija za pozive, poruke i društvene mreže.', price_eur:190, link:'#' },
+      { name:'Samsung Galaxy A56 (256GB, 5G)', tags:['kamera','brzina'], budget:'do350', desc:'Odličan odnos performansi i skladišta, 5G i pouzdan Android doživljaj.', price_eur:320, link:'#' },
+      { name:'iPhone 13 (refurbished, 128GB)', tags:['brzina','kamera'], budget:'do350', desc:'Polovan flagship sa A15 čipom — brži i dugoročno podržan duže nego novi telefoni niže klase.', price_eur:330, link:'#' },
+      { name:'Samsung Galaxy S25 FE', tags:['kamera','brzina','baterija'], budget:'do500', desc:'Oko 90% flagship iskustva po nižoj ceni, dugačka softverska podrška.', price_eur:500, link:'#' }
+    ]
+  },
+  klima: {
+    label: 'Klima za 60 m²',
+    title: 'Koju klimu da izabereš?',
+    questions: [
+      { id:'prioritet', label:'Šta ti je najvažnije?', options:[
+        {id:'tihrad',label:'Tih rad'},
+        {id:'energija',label:'Ušteda energije'},
+        {id:'hladjenje',label:'Brzo hlađenje'},
+        {id:'cena',label:'Cena'}
+      ]},
+      { id:'povrsina', label:'Kolika je površina prostorije?', options:[
+        {id:'do25',label:'Do 25 m²'},
+        {id:'do40',label:'Do 40 m²'},
+        {id:'do60',label:'Do 60 m²'}
+      ]}
+    ],
+    products: [
+      { name:'Inverter klima 9000 BTU (do 25 m²)', tags:['cena','energija'], budget:'do25', desc:'Najisplativija opcija za manju sobu — A+++ inverter tehnologija drži potrošnju nisko.', price_rsd:33999, link:'#' },
+      { name:'Inverter klima 12000 BTU (do 40 m²)', tags:['tihrad','energija'], budget:'do40', desc:'Standardni izbor za dnevnu sobu srednje veličine, dobar balans cene i tihog rada.', price_rsd:46999, link:'#' },
+      { name:'Inverter klima 18000 BTU (do 60 m²)', tags:['hladjenje','cena'], budget:'do60', desc:'Klasična "osamnaestica" koja bez problema hladi 50-60 m² — najpopularniji izbor za veće prostore.', price_rsd:76999, link:'#' }
+    ]
+  },
+  auto: {
+    label: 'Auto do 15.000 €',
+    title: 'Koji auto da izabereš?',
+    questions: [
+      { id:'prioritet', label:'Šta ti je najvažnije?', options:[
+        {id:'potrosnja',label:'Mala potrošnja'},
+        {id:'porodica',label:'Prostor za porodicu'},
+        {id:'pouzdanost',label:'Pouzdanost'},
+        {id:'gradski',label:'Gradska vozljivost'}
+      ]},
+      { id:'budzet', label:'Koji je tvoj budžet?', options:[
+        {id:'do7k',label:'Do 7.000 €'},
+        {id:'do11k',label:'Do 11.000 €'},
+        {id:'do15k',label:'Do 15.000 €'}
+      ]}
+    ],
+    products: [
+      { name:'Renault Clio IV (2015, 1.5 dCi)', tags:['potrosnja','gradski'], budget:'do7k', desc:'Mala potrošnja i lako parkiranje — najisplativiji izbor za grad u ovom budžetu.', price_eur:6500, link:'#' },
+      { name:'Škoda Fabia III (2017, 1.0 TSI)', tags:['pouzdanost','gradski'], budget:'do11k', desc:'Poznata pouzdanost i jeftino održavanje, odličan odnos cene i kilometraže.', price_eur:9800, link:'#' },
+      { name:'Škoda Octavia III (2016, 1.6 TDI Combi)', tags:['porodica','potrosnja'], budget:'do15k', desc:'Veliki prtljažnik i nizak apetit za dizel — najbolji izbor za porodicu i duže puteve.', price_eur:13900, link:'#' }
+    ]
+  },
+  biznis: {
+    label: 'AI alat za biznis',
+    title: 'Koji AI alat da izabereš?',
+    questions: [
+      { id:'namena', label:'Za šta ti treba alat?', options:[
+        {id:'video',label:'Video'},
+        {id:'tekst',label:'Tekst i copywriting'},
+        {id:'dizajn',label:'Dizajn i slike'},
+        {id:'chatbot',label:'Chatbot za sajt'}
+      ]},
+      { id:'budzet', label:'Koji je tvoj budžet?', options:[
+        {id:'besplatno',label:'Besplatno / freemium'},
+        {id:'do20',label:'Do 20 € mesečno'},
+        {id:'preko20',label:'Preko 20 € mesečno'}
+      ]}
+    ],
+    products: [
+      { name:'CapCut (besplatna verzija)', tags:['video'], budget:'besplatno', desc:'Najbrži start za kratke video-formate za Instagram i TikTok, bez ulaganja.', price_eur:0, link:'#' },
+      { name:'Jasper AI (Starter plan)', tags:['tekst'], budget:'do20', desc:'Namenski alat za marketing tekstove, brže od generičkih chatbotova za copywriting.', price_eur:19, link:'#' },
+      { name:'Midjourney (Standard plan)', tags:['dizajn'], budget:'do20', desc:'Trenutno vodeći izbor za kvalitet generisanih slika po pristupačnoj mesečnoj ceni.', price_eur:20, link:'#' },
+      { name:'Intercom (chatbot paket)', tags:['chatbot'], budget:'preko20', desc:'Ozbiljno rešenje za automatizaciju podrške na sajtu, skalira sa rastom biznisa.', price_eur:39, link:'#' }
+    ]
+  },
+  putovanja: {
+    label: 'Hotel u Budvi',
+    title: 'Koji hotel da izabereš?',
+    questions: [
+      { id:'tip', label:'Kakvo putovanje ti treba?', options:[
+        {id:'plaza',label:'Odmor na plaži'},
+        {id:'porodica',label:'Porodični odmor'},
+        {id:'centar',label:'Blizina centra'},
+        {id:'budzet',label:'Najniža cena'}
+      ]},
+      { id:'budzet', label:'Koji je tvoj budžet po noćenju?', options:[
+        {id:'do50',label:'Do 50 € / noć'},
+        {id:'do90',label:'Do 90 € / noć'},
+        {id:'preko90',label:'Preko 90 € / noć'}
+      ]}
+    ],
+    products: [
+      { name:'Hotel Mogren (Budva, standardna soba)', tags:['budzet','centar'], budget:'do50', desc:'Nekoliko minuta od Starog grada, najisplativija opcija za kratak boravak.', price_eur:45, link:'#' },
+      { name:'Hotel Slovenska Plaža (garni)', tags:['plaza','porodica'], budget:'do90', desc:'Direktan izlaz na plažu i sadržaji za decu — najtraženiji porodični izbor u Budvi.', price_eur:78, link:'#' },
+      { name:'Hotel Splendid Conference & Spa Resort', tags:['plaza','porodica','centar'], budget:'preko90', desc:'Pet zvezdica, spa i privatna plaža — za one koji žele potpuni odmor bez kompromisa.', price_eur:150, link:'#' }
+    ]
+  },
+  novac: {
+    label: 'Kreditna kartica / kredit',
+    title: 'Koji finansijski proizvod da izabereš?',
+    questions: [
+      { id:'cilj', label:'Šta ti je cilj?', options:[
+        {id:'stednja',label:'Štednja'},
+        {id:'kredit',label:'Gotovinski kredit'},
+        {id:'kartica',label:'Kreditna kartica'},
+        {id:'osiguranje',label:'Osiguranje'}
+      ]},
+      { id:'prioritet', label:'Šta ti je najvažnije?', options:[
+        {id:'niskakamata',label:'Niska kamata'},
+        {id:'brzina',label:'Brzina odobrenja'},
+        {id:'bezprovizije',label:'Bez skrivenih provizija'}
+      ]}
+    ],
+    products: [
+      { name:'Oročena štednja na 12 meseci', tags:['stednja','niskakamata'], budget:null, desc:'Najsigurniji način da novac radi za tebe bez rizika, fiksna kamatna stopa unapred poznata.', link:'#' },
+      { name:'Gotovinski kredit sa fiksnom kamatom', tags:['kredit','niskakamata'], budget:null, desc:'Predvidiva mesečna rata tokom celog perioda otplate, bez iznenađenja u kamati.', link:'#' },
+      { name:'Kreditna kartica bez godišnje članarine', tags:['kartica','bezprovizije','brzina'], budget:null, desc:'Odobrenje u toku dana i nema skrivenih troškova održavanja — dobar izbor za svakodnevnu potrošnju.', link:'#' }
+    ]
+  }
+};
+
+const quizStepEl = document.getElementById('quizStep');
+const quizResultsEl = document.getElementById('quizResults');
+const quizTitleEl = document.getElementById('quizTitle');
+const quizSubtitleEl = document.getElementById('quizSubtitle');
+const quizKickerEl = document.getElementById('quizKicker');
+
+let quizState = { category:null, qIndex:0, answers:{} };
+
+function formatPrice(p){
+  if(p.price_rsd) return p.price_rsd.toLocaleString('sr-RS') + ' RSD';
+  if(p.price_eur) return p.price_eur.toLocaleString('sr-RS') + ' €';
+  return '';
+}
+
+function renderCategoryPicker(){
+  quizState = { category:null, qIndex:0, answers:{} };
+  quizKickerEl.textContent = 'POMOZI MI DA IZABEREM';
+  quizTitleEl.textContent = 'Šta biraš danas?';
+  quizSubtitleEl.textContent = 'Izaberi šta ti treba da počneš.';
+  quizResultsEl.innerHTML = '';
+  quizStepEl.innerHTML = '';
+  Object.entries(QUIZ_DATA).forEach(([key,cat])=>{
+    const b=document.createElement('button');
+    b.className='pill';
+    b.textContent=cat.label;
+    b.addEventListener('click',()=>{
+      quizState.category=key;
+      quizState.qIndex=0;
+      quizState.answers={};
+      renderQuestion();
+    });
+    quizStepEl.appendChild(b);
+  });
+}
+
+function renderQuestion(){
+  const cat = QUIZ_DATA[quizState.category];
+  const q = cat.questions[quizState.qIndex];
+  quizKickerEl.textContent = `PITANJE ${quizState.qIndex+1} OD ${cat.questions.length}`;
+  quizTitleEl.textContent = cat.title;
+  quizSubtitleEl.textContent = q.label;
+  quizResultsEl.innerHTML = '';
+  quizStepEl.innerHTML = '';
+  q.options.forEach(opt=>{
+    const b=document.createElement('button');
+    b.className='pill';
+    b.textContent=opt.label;
+    b.addEventListener('click',()=>{
+      quizState.answers[q.id]=opt.id;
+      if(quizState.qIndex < cat.questions.length-1){
+        quizState.qIndex++;
+        renderQuestion();
+      } else {
+        renderResults();
+      }
+    });
+    quizStepEl.appendChild(b);
+  });
+}
+
+function scoreProduct(product, answers){
+  let score = 0;
+  Object.values(answers).forEach(ans=>{ if(product.tags.includes(ans)) score++; });
+  if(product.budget && answers.budzet && product.budget===answers.budzet) score += 2;
+  if(product.budget && answers.povrsina && product.budget===answers.povrsina) score += 2;
+  return score;
+}
+
+function renderResults(){
+  const cat = QUIZ_DATA[quizState.category];
+  quizKickerEl.textContent = 'TVOJ REZULTAT';
+  quizTitleEl.textContent = cat.title;
+  quizSubtitleEl.textContent = 'Na osnovu tvojih odgovora, ovo su naši predlozi:';
+  quizStepEl.innerHTML = '';
+
+  const ranked = cat.products
+    .map(p=>({...p, score:scoreProduct(p, quizState.answers)}))
+    .sort((a,b)=>b.score-a.score)
+    .slice(0,3);
+
+  const labels = ['🥇 NAJBOLJI UKUPNO','🥈 ALTERNATIVA','🥉 BUDŽET IZBOR'];
+  quizResultsEl.innerHTML = '';
+  ranked.forEach((p,i)=>{
+    const card=document.createElement('div');
+    card.className='product';
+    if(i===0) card.style.border='2px solid var(--ink)';
+    const price = formatPrice(p);
+    card.innerHTML = `<div class="rank">${labels[i]||''}</div><b>${p.name}</b>${price?`<div class="price">${price}</div>`:''}<p>${p.desc}</p><a class="btn" href="${p.link}" target="_blank" rel="noopener">POGLEDAJ PONUDU</a>`;
+    quizResultsEl.appendChild(card);
+  });
+
+  const restart=document.createElement('button');
+  restart.className='quiz-restart';
+  restart.textContent='← Počni ispočetka';
+  restart.addEventListener('click',renderCategoryPicker);
+  quizResultsEl.appendChild(restart);
+}
+
+document.getElementById('helpBtn').addEventListener('click',()=>{
+  renderCategoryPicker();
+  document.getElementById('kviz').scrollIntoView({behavior:'smooth',block:'start'});
+});
+
+async function initQuizData(){
+  try{
+    const res = await fetch('/api/quiz-data');
+    if(!res.ok) throw new Error('API nije dostupan');
+    QUIZ_DATA = await res.json();
+    delete QUIZ_DATA._napomena; delete QUIZ_DATA._azurirano;
+  } catch(e){
+    console.warn('API nedostupan, koristim ugrađene primer podatke.', e.message);
+    QUIZ_DATA = FALLBACK_QUIZ_DATA;
+  }
+  renderCategoryPicker();
+}
+initQuizData();
+</script>
+</body>
+</html>
