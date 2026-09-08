@@ -1,0 +1,42 @@
+IZABERI — DESIGN HANDOFF
+
+Brand:
+IZABERI
+Slogan: Ne traži više. Izaberi bolje.
+Positioning: Pomažemo ti da izabereš.
+
+Design direction:
+- Modern, minimalist, premium utility product
+- Off-white background, black typography, white cards, subtle borders
+- Strong oversized typography and generous whitespace
+- No visual clutter, no gradients, no decorative stock imagery
+- Primary interaction is search + guided 3–5 question selector
+- Mobile-first responsive behavior
+
+Homepage structure:
+1. Header: IZABERI / Kategorije / Kako radi / Najnovije
+2. Hero: "Ne traži više. Izaberi bolje." + search
+3. 3 steps
+4. Categories: Technology, Home, Auto, Biznis & AI, Travel, Money
+5. Popular now
+6. Core CTA: "Ne znaš šta da izabereš?"
+7. Example decision page
+8. Footer
+
+Important product principle:
+IZABERI is not a product portal. It is a decision assistant. Every page should reduce choice overload and explain why a recommendation fits.
+
+Suggested first SEO pages:
+- Koji telefon da kupim do 300 €?
+- Koji telefon da kupim do 500 €?
+- Koji telefon da kupim do 800 €?
+- Koji laptop da kupim do 500 €?
+- Koji laptop da kupim do 800 €?
+- Koju klimu da kupim za 50 m²?
+- Koji auto da kupim do 15.000 €?
+- Koji AI alat da koristim za video?
+- Koji hotel da izaberem u Budvi?
+- Koju banku da izaberem?
+
+Domain priority:
+izaberi.rs → izaberi.me → izaberi.com → izaberi.online → izaberi.app
