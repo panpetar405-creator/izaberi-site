@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="sr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IZABERI — Ne traži više. Izaberi bolje.</title>
+<style>
+:root{--bg:#f7f7f4;--ink:#111;--muted:#70706b;--line:#deded7;--card:#fff;--accent:#111;--max:1180px}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{text-decoration:none;color:inherit}.wrap{max-width:var(--max);margin:auto;padding:0 28px}
+header{height:76px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:900;letter-spacing:-.05em;font-size:25px}.nav{display:flex;gap:30px;font-size:14px;color:#444}.nav a:hover{color:#000}
+.hero{padding:105px 0 70px;text-align:center}.eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#777;margin-bottom:18px}
+h1{font-size:clamp(48px,7vw,82px);line-height:.95;letter-spacing:-.065em;margin:0 auto 22px;max-width:850px}
+.sub{font-size:20px;color:var(--muted);margin:0 auto 38px}.search{max-width:720px;margin:auto;background:#fff;border:1px solid #cfcfc8;border-radius:16px;padding:8px;display:flex;box-shadow:0 12px 35px #00000009}
+.search input{border:0;outline:0;flex:1;padding:17px 18px;font-size:16px;background:transparent}.btn{border:0;background:#111;color:white;border-radius:11px;padding:0 25px;font-weight:700;font-size:14px}
+.hints{margin-top:14px;color:#8a8a84;font-size:13px}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden;margin:15px 0 90px}.step{background:#fff;padding:27px}.num{font-size:12px;color:#999;font-weight:700}.step strong{display:block;font-size:18px;margin-top:12px}
+section{padding:0 0 88px}.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:24px}.section-head h2{font-size:30px;letter-spacing:-.04em;margin:0}.section-head p{color:#777;margin:0}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.cat{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;min-height:175px}.cat .icon{font-size:25px}.cat h3{margin:18px 0 8px;font-size:18px}.cat p{margin:0;color:#777;line-height:1.7;font-size:14px}
+.popular{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.tile{background:#111;color:#fff;border-radius:18px;padding:25px;min-height:145px;display:flex;flex-direction:column;justify-content:space-between}.tile small{color:#aaa}.tile span{font-size:20px;font-weight:750;letter-spacing:-.02em}
+.help{background:#eaeae4;border-radius:24px;padding:55px;display:flex;align-items:center;justify-content:space-between;gap:30px}.help h2{font-size:38px;letter-spacing:-.05em;margin:0 0 12px}.help p{color:#666;margin:0}.help .btn{height:48px;white-space:nowrap;padding:0 24px}
+.example{background:#fff;border:1px solid var(--line);border-radius:22px;padding:35px}.example h2{margin:0;font-size:28px;letter-spacing:-.04em}.choices{display:flex;flex-wrap:wrap;gap:9px;margin:22px 0}.pill{border:1px solid var(--line);border-radius:99px;padding:10px 14px;font-size:13px}.results{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.product{border:1px solid var(--line);border-radius:16px;padding:20px}.product b{font-size:17px}.product p{color:#777;font-size:13px}.rank{font-size:12px;color:#777}
+footer{border-top:1px solid var(--line);padding:35px 0 50px;color:#777;font-size:13px;display:flex;justify-content:space-between}
+@media(max-width:800px){.nav{display:none}.hero{padding-top:70px}.steps,.grid,.popular,.results{grid-template-columns:1fr}.help{padding:32px;display:block}.help .btn{margin-top:25px}.search{display:block;background:transparent;border:0;box-shadow:none;padding:0}.search input{background:#fff;border:1px solid var(--line);border-radius:12px;width:100%;margin-bottom:8px}.btn{height:52px;width:100%}.section-head{display:block}.section-head p{margin-top:8px}}
+</style>
+</head>
+<body>
+<header><div class="wrap" style="width:100%;display:flex;align-items:center;justify-content:space-between"><a class="logo" href="#">IZABERI</a><nav class="nav"><a href="#kategorije">Kategorije</a><a href="#kako">Kako radi</a><a href="#popularno">Najnovije</a></nav></div></header>
+<main class="wrap">
+<section class="hero">
+<div class="eyebrow">Digitalni pomoćnik za odluke</div>
+<h1>Ne traži više.<br>Izaberi bolje.</h1>
+<p class="sub">Pomažemo ti da izabereš ono što ti najviše odgovara.</p>
+<div class="search"><input placeholder="🔎  Šta želiš da izabereš?"><button class="btn">PRETRAŽI</button></div>
+<div class="hints">Telefon do 500 € · Laptop za posao · Klima za 60 m² · AI alat za Instagram</div>
+</section>
+
+<section id="kako"><div class="steps">
+<div class="step"><span class="num">01</span><strong>Reci šta tražiš</strong></div>
+<div class="step"><span class="num">02</span><strong>Postavi prioritete</strong></div>
+<div class="step"><span class="num">03</span><strong>Izaberi najbolje za sebe</strong></div>
+</div></section>
+
+<section id="kategorije"><div class="section-head"><h2>Šta biraš danas?</h2><p>Jednostavno do pravog izbora.</p></div>
+<div class="grid">
+<div class="cat"><div class="icon">💻</div><h3>Tehnologija</h3><p>Telefoni · Laptopovi · Televizori · Slušalice</p></div>
+<div class="cat"><div class="icon">🏠</div><h3>Dom</h3><p>Klime · Usisivači · Frižideri · Mašine</p></div>
+<div class="cat"><div class="icon">🚗</div><h3>Auto</h3><p>Automobili · Gume · Osiguranje · Oprema</p></div>
+<div class="cat"><div class="icon">🤖</div><h3>Biznis & AI</h3><p>AI alati · Softver · Hosting · SaaS</p></div>
+<div class="cat"><div class="icon">✈️</div><h3>Putovanja</h3><p>Hoteli · Destinacije · Rent-a-car</p></div>
+<div class="cat"><div class="icon">💳</div><h3>Novac</h3><p>Banke · Krediti · Kartice · Osiguranje</p></div>
+</div></section>
+
+<section id="popularno"><div class="section-head"><h2>Najtraženiji izbori</h2><p>Popularno sada</p></div>
+<div class="popular">
+<a class="tile" href="pages/koji-telefon-do-500e.html"><small>TEHNOLOGIJA</small><span>Najbolji telefon do 500 €</span></a>
+<a class="tile" href="pages/koji-laptop-do-800e.html"><small>TEHNOLOGIJA</small><span>Najbolji laptop za posao</span></a>
+<a class="tile" href="pages/koju-klimu-za-50m2.html"><small>DOM</small><span>Najbolja klima za stan</span></a>
+<div class="tile"><small>BIZNIS & AI</small><span>Najbolji AI alat za video</span></div>
+<div class="tile"><small>AUTO</small><span>Najbolji auto do 15.000 €</span></div>
+<div class="tile"><small>PUTOVANJA</small><span>Najbolji hotel u Budvi</span></div>
+</div></section>
+
+<section><div class="help"><div><h2>Ne znaš šta da izabereš?</h2><p>Odgovori na 3–5 pitanja. Mi ćemo suziti izbor.</p></div><button class="btn">POMOZI MI DA IZABEREM</button></div></section>
+
+<section><div class="example"><div class="rank">PRIMER STRANICE</div><h2>Koji laptop da kupim do 800 €?</h2><p style="color:#777">Šta ti je najvažnije?</p><div class="choices"><span class="pill">⚡ Performanse</span><span class="pill">🔋 Baterija</span><span class="pill">💼 Posao</span><span class="pill">🎮 Gaming</span><span class="pill">🎒 Mobilnost</span></div>
+<div class="results"><div class="product"><div class="rank">🥇 NAJBOLJI UKUPNO</div><b>Laptop X</b><p>✓ Performanse<br>✓ Baterija<br>✓ Ekran</p><button class="btn">POGLEDAJ PONUDU</button></div><div class="product"><div class="rank">🥈 ALTERNATIVA</div><b>Laptop Y</b><p>Najbolji odnos cena/kvalitet</p></div><div class="product"><div class="rank">🥉 BUDŽET IZBOR</div><b>Laptop Z</b><p>Najbolji ako želiš da potrošiš manje</p></div></div>
+</div></section>
+</main>
+<footer><div class="wrap" style="width:100%;display:flex;justify-content:space-between"><span>IZABERI</span><span>Ne traži više. Izaberi bolje.</span></div></footer>
+</body></html>
