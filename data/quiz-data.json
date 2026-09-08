@@ -1,0 +1,163 @@
+{
+  "_napomena": "Ovo su DEMO podaci. Zameni sadržaj ovog fajla pravim proizvodima/cenama/linkovima kad budeš imao affiliate feed. Struktura (questions/products/tags/budget) mora ostati ista da kviz na sajtu nastavi da radi.",
+  "_azurirano": "2026-09-08",
+  "laptop": {
+    "label": "Laptop za posao",
+    "title": "Koji laptop da kupiš?",
+    "questions": [
+      { "id": "prioritet", "label": "Šta ti je najvažnije?", "options": [
+        {"id":"performanse","label":"Performanse"},
+        {"id":"baterija","label":"Baterija"},
+        {"id":"posao","label":"Posao"},
+        {"id":"gaming","label":"Gaming"},
+        {"id":"mobilnost","label":"Mobilnost"}
+      ]},
+      { "id": "budzet", "label": "Koji je tvoj budžet?", "options": [
+        {"id":"do60k","label":"Do 60.000 RSD"},
+        {"id":"do75k","label":"Do 75.000 RSD"},
+        {"id":"do90k","label":"Do 90.000 RSD"},
+        {"id":"preko90k","label":"Preko 90.000 RSD"}
+      ]}
+    ],
+    "products": [
+      { "name":"Acer Aspire Lite 15 (Ryzen 3 5400U, 8GB, 256GB SSD)", "tags":["posao","mobilnost"], "budget":"do60k", "desc":"Najpristupačniji poslovni laptop u ponudi — dovoljan za office pakete, mejl i pregledače, lagan za nošenje.", "price_rsd":59999, "link":"#" },
+      { "name":"Lenovo V15 G5 (i3-1315U, 8GB DDR5, 512GB SSD)", "tags":["posao","baterija"], "budget":"do75k", "desc":"Solidan balans cene i pouzdanosti, veći SSD nego kod konkurencije u istom rangu.", "price_rsd":68999, "link":"#" },
+      { "name":"Asus Vivobook Go 15 (Ryzen 3 7320U, 16GB, 512GB SSD)", "tags":["performanse","posao","baterija"], "budget":"do90k", "desc":"16GB RAM-a čini multitasking mnogo udobnijim, noviji čip uz i dalje pristupačnu cenu.", "price_rsd":79999, "link":"#" },
+      { "name":"Vivobook 16 (Ryzen 5 7430U, 16GB, 512GB SSD)", "tags":["performanse","gaming"], "budget":"preko90k", "desc":"Jači procesor i veći 16\" ekran, najbolja opcija kad su performanse prioritet.", "price_rsd":94999, "link":"#" }
+    ]
+  },
+  "telefon": {
+    "label": "Telefon do 500 €",
+    "title": "Koji telefon da izabereš?",
+    "questions": [
+      { "id":"prioritet", "label":"Šta ti je najvažnije?", "options":[
+        {"id":"kamera","label":"Kamera"},
+        {"id":"baterija","label":"Baterija"},
+        {"id":"brzina","label":"Brzina"},
+        {"id":"cena","label":"Cena"}
+      ]},
+      { "id":"budzet", "label":"Koji je tvoj budžet?", "options":[
+        {"id":"do250","label":"Do 250 €"},
+        {"id":"do350","label":"Do 350 €"},
+        {"id":"do500","label":"Do 500 €"}
+      ]}
+    ],
+    "products": [
+      { "name":"Samsung Galaxy A16", "tags":["baterija","cena"], "budget":"do250", "desc":"Veliki ekran, baterija od 5000 mAh — najpristupačnija opcija za pozive, poruke i društvene mreže.", "price_eur":190, "link":"#" },
+      { "name":"Samsung Galaxy A56 (256GB, 5G)", "tags":["kamera","brzina"], "budget":"do350", "desc":"Odličan odnos performansi i skladišta, 5G i pouzdan Android doživljaj.", "price_eur":320, "link":"#" },
+      { "name":"iPhone 13 (refurbished, 128GB)", "tags":["brzina","kamera"], "budget":"do350", "desc":"Polovan flagship sa A15 čipom — brži i dugoročno podržan duže nego novi telefoni niže klase.", "price_eur":330, "link":"#" },
+      { "name":"Samsung Galaxy S25 FE", "tags":["kamera","brzina","baterija"], "budget":"do500", "desc":"Oko 90% flagship iskustva po nižoj ceni, dugačka softverska podrška.", "price_eur":500, "link":"#" }
+    ]
+  },
+  "klima": {
+    "label": "Klima za 60 m²",
+    "title": "Koju klimu da izabereš?",
+    "questions": [
+      { "id":"prioritet", "label":"Šta ti je najvažnije?", "options":[
+        {"id":"tihrad","label":"Tih rad"},
+        {"id":"energija","label":"Ušteda energije"},
+        {"id":"hladjenje","label":"Brzo hlađenje"},
+        {"id":"cena","label":"Cena"}
+      ]},
+      { "id":"povrsina", "label":"Kolika je površina prostorije?", "options":[
+        {"id":"do25","label":"Do 25 m²"},
+        {"id":"do40","label":"Do 40 m²"},
+        {"id":"do60","label":"Do 60 m²"}
+      ]}
+    ],
+    "products": [
+      { "name":"Inverter klima 9000 BTU (do 25 m²)", "tags":["cena","energija"], "budget":"do25", "desc":"Najisplativija opcija za manju sobu — A+++ inverter tehnologija drži potrošnju nisko.", "price_rsd":33999, "link":"#" },
+      { "name":"Inverter klima 12000 BTU (do 40 m²)", "tags":["tihrad","energija"], "budget":"do40", "desc":"Standardni izbor za dnevnu sobu srednje veličine, dobar balans cene i tihog rada.", "price_rsd":46999, "link":"#" },
+      { "name":"Inverter klima 18000 BTU (do 60 m²)", "tags":["hladjenje","cena"], "budget":"do60", "desc":"Klasična \"osamnaestica\" koja bez problema hladi 50-60 m² — najpopularniji izbor za veće prostore.", "price_rsd":76999, "link":"#" }
+    ]
+  },
+  "auto": {
+    "label": "Auto do 15.000 €",
+    "title": "Koji auto da izabereš?",
+    "questions": [
+      { "id":"prioritet", "label":"Šta ti je najvažnije?", "options":[
+        {"id":"potrosnja","label":"Mala potrošnja"},
+        {"id":"porodica","label":"Prostor za porodicu"},
+        {"id":"pouzdanost","label":"Pouzdanost"},
+        {"id":"gradski","label":"Gradska vozljivost"}
+      ]},
+      { "id":"budzet", "label":"Koji je tvoj budžet?", "options":[
+        {"id":"do7k","label":"Do 7.000 €"},
+        {"id":"do11k","label":"Do 11.000 €"},
+        {"id":"do15k","label":"Do 15.000 €"}
+      ]}
+    ],
+    "products": [
+      { "name":"Renault Clio IV (2015, 1.5 dCi)", "tags":["potrosnja","gradski"], "budget":"do7k", "desc":"Mala potrošnja i lako parkiranje — najisplativiji izbor za grad u ovom budžetu.", "price_eur":6500, "link":"#" },
+      { "name":"Škoda Fabia III (2017, 1.0 TSI)", "tags":["pouzdanost","gradski"], "budget":"do11k", "desc":"Poznata pouzdanost i jeftino održavanje, odličan odnos cene i kilometraže.", "price_eur":9800, "link":"#" },
+      { "name":"Škoda Octavia III (2016, 1.6 TDI Combi)", "tags":["porodica","potrosnja"], "budget":"do15k", "desc":"Veliki prtljažnik i nizak apetit za dizel — najbolji izbor za porodicu i duže puteve.", "price_eur":13900, "link":"#" }
+    ]
+  },
+  "biznis": {
+    "label": "AI alat za biznis",
+    "title": "Koji AI alat da izabereš?",
+    "questions": [
+      { "id":"namena", "label":"Za šta ti treba alat?", "options":[
+        {"id":"video","label":"Video"},
+        {"id":"tekst","label":"Tekst i copywriting"},
+        {"id":"dizajn","label":"Dizajn i slike"},
+        {"id":"chatbot","label":"Chatbot za sajt"}
+      ]},
+      { "id":"budzet", "label":"Koji je tvoj budžet?", "options":[
+        {"id":"besplatno","label":"Besplatno / freemium"},
+        {"id":"do20","label":"Do 20 € mesečno"},
+        {"id":"preko20","label":"Preko 20 € mesečno"}
+      ]}
+    ],
+    "products": [
+      { "name":"CapCut (besplatna verzija)", "tags":["video"], "budget":"besplatno", "desc":"Najbrži start za kratke video-formate za Instagram i TikTok, bez ulaganja.", "price_eur":0, "link":"#" },
+      { "name":"Jasper AI (Starter plan)", "tags":["tekst"], "budget":"do20", "desc":"Namenski alat za marketing tekstove, brže od generičkih chatbotova za copywriting.", "price_eur":19, "link":"#" },
+      { "name":"Midjourney (Standard plan)", "tags":["dizajn"], "budget":"do20", "desc":"Trenutno vodeći izbor za kvalitet generisanih slika po pristupačnoj mesečnoj ceni.", "price_eur":20, "link":"#" },
+      { "name":"Intercom (chatbot paket)", "tags":["chatbot"], "budget":"preko20", "desc":"Ozbiljno rešenje za automatizaciju podrške na sajtu, skalira sa rastom biznisa.", "price_eur":39, "link":"#" }
+    ]
+  },
+  "putovanja": {
+    "label": "Hotel u Budvi",
+    "title": "Koji hotel da izabereš?",
+    "questions": [
+      { "id":"tip", "label":"Kakvo putovanje ti treba?", "options":[
+        {"id":"plaza","label":"Odmor na plaži"},
+        {"id":"porodica","label":"Porodični odmor"},
+        {"id":"centar","label":"Blizina centra"},
+        {"id":"budzet","label":"Najniža cena"}
+      ]},
+      { "id":"budzet", "label":"Koji je tvoj budžet po noćenju?", "options":[
+        {"id":"do50","label":"Do 50 € / noć"},
+        {"id":"do90","label":"Do 90 € / noć"},
+        {"id":"preko90","label":"Preko 90 € / noć"}
+      ]}
+    ],
+    "products": [
+      { "name":"Hotel Mogren (Budva, standardna soba)", "tags":["budzet","centar"], "budget":"do50", "desc":"Nekoliko minuta od Starog grada, najisplativija opcija za kratak boravak.", "price_eur":45, "link":"#" },
+      { "name":"Hotel Slovenska Plaža (garni)", "tags":["plaza","porodica"], "budget":"do90", "desc":"Direktan izlaz na plažu i sadržaji za decu — najtraženiji porodični izbor u Budvi.", "price_eur":78, "link":"#" },
+      { "name":"Hotel Splendid Conference & Spa Resort", "tags":["plaza","porodica","centar"], "budget":"preko90", "desc":"Pet zvezdica, spa i privatna plaža — za one koji žele potpuni odmor bez kompromisa.", "price_eur":150, "link":"#" }
+    ]
+  },
+  "novac": {
+    "label": "Kreditna kartica / kredit",
+    "title": "Koji finansijski proizvod da izabereš?",
+    "questions": [
+      { "id":"cilj", "label":"Šta ti je cilj?", "options":[
+        {"id":"stednja","label":"Štednja"},
+        {"id":"kredit","label":"Gotovinski kredit"},
+        {"id":"kartica","label":"Kreditna kartica"},
+        {"id":"osiguranje","label":"Osiguranje"}
+      ]},
+      { "id":"prioritet", "label":"Šta ti je najvažnije?", "options":[
+        {"id":"niskakamata","label":"Niska kamata"},
+        {"id":"brzina","label":"Brzina odobrenja"},
+        {"id":"bezprovizije","label":"Bez skrivenih provizija"}
+      ]}
+    ],
+    "products": [
+      { "name":"Oročena štednja na 12 meseci", "tags":["stednja","niskakamata"], "budget":null, "desc":"Najsigurniji način da novac radi za tebe bez rizika, fiksna kamatna stopa unapred poznata.", "link":"#" },
+      { "name":"Gotovinski kredit sa fiksnom kamatom", "tags":["kredit","niskakamata"], "budget":null, "desc":"Predvidiva mesečna rata tokom celog perioda otplate, bez iznenađenja u kamati.", "link":"#" },
+      { "name":"Kreditna kartica bez godišnje članarine", "tags":["kartica","bezprovizije","brzina"], "budget":null, "desc":"Odobrenje u toku dana i nema skrivenih troškova održavanja — dobar izbor za svakodnevnu potrošnju.", "link":"#" }
+    ]
+  }
+      }
